@@ -1,14 +1,1 @@
-<!DOCTYPE html>
-<html>
-<head><title>Callback</title></head>
-<body>
-<h2>Token recebido!</h2>
-<div id="token"></div>
-<script>
-const hash = window.location.hash.substring(1);
-const params = new URLSearchParams(hash);
-const token = params.get('access_token');
-document.getElementById('token').innerHTML = token;
-</script>
-</body>
-</html>
+<!DOCTYPE html> <html> <head> <title>Token Recebido</title> <style> body { font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5; } .token { background: white; padding: 20px; border-radius: 8px; word-break: break-all; font-family: monospace; } </style> </head> <body> <h2>🎲 Token do Dice Dreams</h2> <div id="result"></div> <script> const hash = window.location.hash.substring(1); const params = new URLSearchParams(hash); const token = params.get('access_token'); const idToken = params.get('id_token'); const signedRequest = params.get('signed_request'); let html = ''; if (token) html += `<div class="token"><strong>Access Token:</strong><br>${token}</div>`; if (idToken) html += `<div class="token"><strong>ID Token:</strong><br>${idToken}</div>`; if (signedRequest) html += `<div class="token"><strong>Signed Request:</strong><br>${signedRequest}</div>`; document.getElementById('result').innerHTML = html || '❌ Nenhum token encontrado'; </script> </body> </html>
